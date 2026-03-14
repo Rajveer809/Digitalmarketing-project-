@@ -1,0 +1,2269 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Impacts — Where Brands Break Through Digitally</title>
+<meta name="description" content="The Impacts is India's results-driven digital marketing agency. We help startups & SMEs grow with SEO, Google Ads & social media. Get a free audit today!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET & ROOT ─────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --amber: #F5A623;
+  --amber2: #e8950f;
+  --navy: #1A3C6B;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --max: 1240px;
+  --pad: clamp(20px, 5vw, 60px);
+  --radius: 4px;
+  --radius2: 12px;
+}
+
+/* ── DARK MODE (default) ── */
+html[data-theme="dark"] {
+  --bg: #0a0a0a;
+  --bg2: #111111;
+  --bg3: #161616;
+  --border: rgba(255,255,255,0.08);
+  --border2: rgba(255,255,255,0.14);
+  --white: #ffffff;
+  --off-white: #e8e8e0;
+  --gray: #888880;
+  --gray2: #555550;
+  --img-filter: saturate(0.55) brightness(0.65);
+  --img-filter-hover: saturate(0.8) brightness(0.8);
+  --shadow: rgba(0,0,0,0.6);
+  --nav-scrolled: rgba(10,10,10,0.92);
+  --outline-stroke: rgba(255,255,255,0.3);
+}
+
+/* ── LIGHT MODE ── */
+html[data-theme="light"] {
+  --bg: #f8f7f4;
+  --bg2: #ffffff;
+  --bg3: #f0ede8;
+  --border: rgba(0,0,0,0.08);
+  --border2: rgba(0,0,0,0.15);
+  --white: #0a0a0a;
+  --off-white: #1a1a18;
+  --gray: #666660;
+  --gray2: #999994;
+  --img-filter: saturate(0.75) brightness(0.9);
+  --img-filter-hover: saturate(1) brightness(1);
+  --shadow: rgba(0,0,0,0.12);
+  --nav-scrolled: rgba(248,247,244,0.95);
+  --outline-stroke: rgba(0,0,0,0.25);
+}
+
+/* ── MODE TOGGLE BUTTON ── */
+#theme-toggle {
+  position: fixed; bottom: 96px; right: 28px; z-index: 901;
+  width: 48px; height: 26px;
+  background: var(--bg3); border: 1.5px solid var(--border2);
+  border-radius: 100px; cursor: none;
+  transition: background 0.3s, border-color 0.3s;
+  display: flex; align-items: center; padding: 2px;
+}
+#theme-toggle-knob {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--amber);
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; line-height: 1;
+}
+html[data-theme="light"] #theme-toggle-knob { transform: translateX(22px); }
+#theme-toggle-label {
+  position: fixed; bottom: 96px; right: 84px; z-index: 901;
+  font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--gray); background: var(--bg2); border: 1px solid var(--border);
+  padding: 5px 10px; border-radius: 100px;
+  opacity: 0; pointer-events: none; transition: opacity 0.2s;
+  white-space: nowrap;
+}
+#theme-toggle:hover + #theme-toggle-label { opacity: 1; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--off-white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; width: 100%; }
+button { font-family: var(--font-body); cursor: none; }
+
+/* ─── CUSTOM CURSOR ─────────────────────────────────── */
+#cursor {
+  position: fixed; width: 10px; height: 10px;
+  background: var(--amber); border-radius: 50%;
+  pointer-events: none; z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
+  mix-blend-mode: normal;
+}
+#cursor-ring {
+  position: fixed; width: 36px; height: 36px;
+  border: 1px solid rgba(245,166,35,0.4); border-radius: 50%;
+  pointer-events: none; z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+}
+body:has(a:hover) #cursor, body:has(button:hover) #cursor { width: 16px; height: 16px; }
+body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 52px; height: 52px; opacity: 0.6; }
+
+/* ─── NOISE TEXTURE ─────────────────────────────────── */
+body::before {
+  content: ''; position: fixed; inset: 0; z-index: 1; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  background-size: 150px; opacity: 0.4;
+}
+
+/* ─── NAV ─────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 20px var(--pad);
+  display: flex; align-items: center; justify-content: space-between;
+  background: transparent;
+  transition: background 0.4s ease, border-bottom 0.4s ease;
+}
+nav.scrolled {
+  background: var(--nav-scrolled);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.nav-logo span { color: var(--amber); }
+.nav-links { display: flex; gap: 36px; align-items: center; }
+.nav-links a {
+  font-size: 13px; font-weight: 500; letter-spacing: 0.02em;
+  color: var(--gray); text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--white); }
+.nav-cta {
+  background: var(--amber); color: #000; border: none;
+  padding: 10px 22px; border-radius: var(--radius);
+  font-size: 13px; font-weight: 600; letter-spacing: 0.02em;
+  text-transform: uppercase;
+  transition: background 0.2s, transform 0.2s;
+  display: inline-block;
+}
+.nav-cta:hover { background: var(--amber2); transform: translateY(-1px); }
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 24px; height: 1.5px; background: var(--off-white); transition: 0.3s; }
+
+/* ─── PAGES ─────────────────────────────────── */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ─── HERO ─────────────────────────────────── */
+.hero {
+  min-height: 100vh; padding-top: 120px;
+  display: flex; flex-direction: column;
+  padding-left: var(--pad); padding-right: var(--pad);
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1800&auto=format&fit=crop&q=80');
+  background-size: cover; background-position: center;
+  filter: var(--img-filter);
+  transition: filter 0.4s;
+}
+html[data-theme="dark"] .hero-bg { opacity: 0.18; }
+html[data-theme="light"] .hero-bg { opacity: 0.10; }
+.hero > * { position: relative; z-index: 1; }
+
+/* ─── IMAGE GALLERY STRIP ─────────────────────────────────── */
+.gallery-strip {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 12px;
+  padding: 0 var(--pad) 0; margin-bottom: 0;
+}
+.gallery-strip-img {
+  border-radius: var(--radius2); overflow: hidden;
+  filter: var(--img-filter); transition: filter 0.4s, transform 0.4s;
+}
+.gallery-strip-img:hover { filter: var(--img-filter-hover); }
+.gallery-strip-img img { width: 100%; height: 220px; object-fit: cover; display: block; transition: transform 0.5s; }
+.gallery-strip-img:hover img { transform: scale(1.05); }
+
+/* ─── SERVICE IMAGE CARDS ─────────────────────────────────── */
+.service-card-img {
+  width: 100%; height: 140px; object-fit: cover;
+  border-radius: var(--radius); margin-bottom: 20px;
+  filter: var(--img-filter); transition: filter 0.3s;
+}
+.service-card:hover .service-card-img { filter: var(--img-filter-hover); }
+
+/* ─── SPLIT IMAGE SECTION ─────────────────────────────────── */
+.split-section {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  min-height: 520px; overflow: hidden;
+}
+.split-img {
+  position: relative; overflow: hidden;
+}
+.split-img img {
+  width: 100%; height: 100%; object-fit: cover; min-height: 400px;
+  filter: var(--img-filter); transition: filter 0.5s, transform 0.5s;
+}
+.split-img:hover img { filter: var(--img-filter-hover); transform: scale(1.03); }
+.split-img-overlay {
+  position: absolute; inset: 0; background: linear-gradient(135deg, rgba(245,166,35,0.15), transparent);
+  pointer-events: none;
+}
+.split-content {
+  padding: 80px 60px; display: flex; flex-direction: column; justify-content: center;
+  background: var(--bg2);
+}
+@media(max-width:900px) {
+  .split-section { grid-template-columns: 1fr; }
+  .split-img img { min-height: 280px; }
+  .split-content { padding: 48px var(--pad); }
+}
+
+/* ─── PROCESS NUM - light mode fix ── */
+html[data-theme="light"] .process-step-num { color: rgba(0,0,0,0.04); }
+.hero-top {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 32px; flex-wrap: wrap; gap: 16px;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(245,166,35,0.08); border: 1px solid rgba(245,166,35,0.2);
+  padding: 8px 16px; border-radius: 100px;
+  font-size: 12px; color: var(--amber); letter-spacing: 0.05em; text-transform: uppercase;
+}
+.hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--amber); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+.hero-trustbar { display: flex; align-items: center; gap: 12px; }
+.hero-avatars { display: flex; }
+.hero-avatars span {
+  width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--bg);
+  background: linear-gradient(135deg, var(--navy), var(--amber));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: white;
+  margin-left: -8px;
+}
+.hero-avatars span:first-child { margin-left: 0; }
+.hero-trust-text { font-size: 12px; color: var(--gray); }
+.hero-trust-text strong { color: var(--off-white); }
+
+.hero-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 9vw, 128px);
+  font-weight: 800; line-height: 0.9;
+  letter-spacing: -0.03em;
+  margin-bottom: 48px;
+  max-width: 1100px;
+}
+.hero-h1 em { font-style: normal; color: var(--amber); }
+.hero-h1 .outline {
+  -webkit-text-stroke: 1px var(--outline-stroke);
+  color: transparent;
+}
+
+.hero-sub-row {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 40px;
+  flex-wrap: wrap; margin-bottom: 60px;
+}
+.hero-desc { max-width: 420px; color: var(--gray); font-size: 17px; line-height: 1.65; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+.btn-primary {
+  background: var(--amber); color: #000; border: none;
+  padding: 14px 30px; border-radius: var(--radius);
+  font-size: 14px; font-weight: 600; letter-spacing: 0.01em;
+  transition: all 0.25s; display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-primary:hover { background: var(--amber2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,166,35,0.25); }
+.btn-ghost {
+  background: transparent; color: var(--off-white);
+  border: 1px solid var(--border2);
+  padding: 14px 30px; border-radius: var(--radius);
+  font-size: 14px; font-weight: 500;
+  transition: all 0.25s; display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-ghost:hover { border-color: var(--amber); color: var(--amber); transform: translateY(-2px); }
+
+/* Scrolling service cards in hero */
+.hero-cards-track {
+  display: flex; gap: 16px; overflow: hidden;
+  margin: 0 calc(-1 * var(--pad)); padding: 0 var(--pad) 80px;
+}
+.hero-card {
+  flex-shrink: 0; width: 260px; height: 160px;
+  border: 1px solid var(--border); border-radius: var(--radius2);
+  overflow: hidden; position: relative;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.hero-card:hover { border-color: var(--amber); transform: translateY(-4px); }
+.hero-card-img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: var(--img-filter);
+  transition: filter 0.3s;
+}
+.hero-card:hover .hero-card-img { filter: var(--img-filter-hover); }
+.hero-card-label {
+  position: absolute; bottom: 16px; left: 16px;
+  font-family: var(--font-display); font-weight: 600; font-size: 15px;
+  color: var(--white);
+}
+.hero-card-arrow {
+  position: absolute; top: 16px; right: 16px;
+  width: 28px; height: 28px; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; transition: background 0.2s, border-color 0.2s;
+}
+.hero-card:hover .hero-card-arrow { background: var(--amber); border-color: var(--amber); color: #000; }
+
+/* ─── MARQUEE ─────────────────────────────────── */
+.marquee-section {
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: 20px 0; overflow: hidden; background: var(--bg2);
+}
+.marquee-track {
+  display: flex; gap: 0; white-space: nowrap;
+  animation: marquee 28s linear infinite;
+}
+.marquee-section:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.marquee-item {
+  display: inline-flex; align-items: center; gap: 20px;
+  padding: 0 32px;
+  font-family: var(--font-display); font-size: 13px; font-weight: 500;
+  color: var(--gray2); text-transform: uppercase; letter-spacing: 0.1em;
+}
+.marquee-item .dot { color: var(--amber); font-size: 20px; line-height: 1; }
+.marquee-item.highlight { color: var(--gray); }
+
+/* ─── SECTION COMMONS ─────────────────────────────────── */
+section { padding: 100px var(--pad); }
+.section-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--amber); margin-bottom: 24px;
+}
+.section-label::before { content: ''; width: 24px; height: 1px; background: var(--amber); }
+.section-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 5vw, 60px); font-weight: 800;
+  line-height: 1.0; letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.section-h2 em { font-style: normal; color: var(--amber); }
+.section-sub {
+  color: var(--gray); font-size: 17px; max-width: 540px; line-height: 1.65;
+}
+
+/* ─── ABOUT SECTION ─────────────────────────────────── */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  align-items: center; margin-bottom: 80px;
+}
+.about-img-wrap { position: relative; }
+.about-img {
+  width: 100%; aspect-ratio: 4/5; object-fit: cover;
+  border-radius: var(--radius2); filter: var(--img-filter);
+  transition: filter 0.4s;
+}
+.about-img-wrap:hover .about-img { filter: var(--img-filter-hover); }
+.about-img-badge {
+  position: absolute; bottom: 24px; left: -20px;
+  background: var(--bg); border: 1px solid var(--border2);
+  border-radius: var(--radius2); padding: 16px 20px;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+}
+.about-img-badge .num {
+  font-family: var(--font-display); font-size: 32px; font-weight: 800; color: var(--amber);
+}
+.about-img-badge .txt { font-size: 12px; color: var(--gray); line-height: 1.4; }
+.about-img-badge .txt strong { display: block; color: var(--off-white); font-size: 14px; }
+.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+.about-stat {
+  padding: 24px; border: 1px solid var(--border); border-radius: var(--radius2);
+  background: var(--bg2); transition: border-color 0.3s;
+}
+.about-stat:hover { border-color: var(--amber); }
+.about-stat .num {
+  font-family: var(--font-display); font-size: 40px; font-weight: 800; color: var(--amber); line-height: 1;
+}
+.about-stat .label { font-size: 13px; color: var(--gray); margin-top: 6px; }
+
+/* ─── SERVICES ─────────────────────────────────── */
+.services-intro {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 60px; flex-wrap: wrap; gap: 24px;
+}
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.service-card {
+  background: var(--bg2); padding: 40px 32px;
+  border: 1px solid var(--border);
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+  position: relative; overflow: hidden; cursor: pointer;
+}
+.service-card::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(245,166,35,0.04), transparent);
+  opacity: 0; transition: opacity 0.3s;
+}
+.service-card:hover { border-color: var(--amber); transform: translateY(-4px); }
+.service-card:hover::before { opacity: 1; }
+.service-icon {
+  width: 48px; height: 48px; border: 1px solid var(--border2); border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; margin-bottom: 24px;
+  transition: background 0.3s, border-color 0.3s;
+}
+.service-card:hover .service-icon { background: var(--amber); border-color: var(--amber); }
+.service-card h3 {
+  font-family: var(--font-display); font-size: 20px; font-weight: 700;
+  margin-bottom: 12px; letter-spacing: -0.02em;
+}
+.service-card p { color: var(--gray); font-size: 14px; line-height: 1.65; }
+.service-num {
+  position: absolute; top: 24px; right: 24px;
+  font-family: var(--font-display); font-size: 12px; font-weight: 600;
+  color: var(--gray2); letter-spacing: 0.05em;
+}
+
+/* ─── PROCESS ─────────────────────────────────── */
+.process-section { background: var(--bg2); }
+.process-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  margin-top: 60px; border: 1px solid var(--border); border-radius: var(--radius2); overflow: hidden;
+}
+.process-step {
+  padding: 40px 28px; border-right: 1px solid var(--border);
+  position: relative; transition: background 0.3s;
+}
+.process-step:last-child { border-right: none; }
+.process-step:hover { background: rgba(245,166,35,0.03); }
+.process-step-num {
+  font-family: var(--font-display); font-size: 56px; font-weight: 800;
+  color: rgba(255,255,255,0.04); line-height: 1; margin-bottom: 20px;
+}
+.process-step h3 {
+  font-family: var(--font-display); font-size: 16px; font-weight: 700;
+  margin-bottom: 10px; color: var(--off-white);
+}
+.process-step p { font-size: 13px; color: var(--gray); line-height: 1.65; }
+.process-step-icon {
+  width: 40px; height: 40px; border: 1px solid var(--border2); border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center; font-size: 16px; margin-bottom: 16px;
+}
+
+/* ─── CASE STUDIES ─────────────────────────────────── */
+.cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 60px; }
+.case-card {
+  border: 1px solid var(--border); border-radius: var(--radius2);
+  overflow: hidden; background: var(--bg2);
+  transition: border-color 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+.case-card:hover { border-color: var(--amber); transform: translateY(-4px); }
+.case-card-img {
+  width: 100%; aspect-ratio: 16/9; object-fit: cover;
+  filter: var(--img-filter);
+  transition: filter 0.4s, transform 0.4s;
+}
+.case-card:hover .case-card-img { filter: var(--img-filter-hover); transform: scale(1.03); }
+.case-card-img-wrap { overflow: hidden; }
+.case-card-body { padding: 28px; }
+.case-tag {
+  display: inline-block; font-size: 10px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--amber);
+  border: 1px solid rgba(245,166,35,0.3); padding: 4px 10px;
+  border-radius: 100px; margin-bottom: 12px;
+}
+.case-card h3 {
+  font-family: var(--font-display); font-size: 20px; font-weight: 700;
+  margin-bottom: 10px; letter-spacing: -0.01em;
+}
+.case-card p { color: var(--gray); font-size: 14px; margin-bottom: 20px; }
+.case-metrics { display: flex; gap: 20px; }
+.case-metric .val {
+  font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--amber);
+}
+.case-metric .key { font-size: 11px; color: var(--gray); }
+
+/* ─── TESTIMONIALS ─────────────────────────────────── */
+.testi-section { overflow: hidden; }
+.testi-header {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 50px; flex-wrap: wrap; gap: 20px;
+}
+.testi-slider { position: relative; }
+.testi-track { display: flex; gap: 20px; transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94); }
+.testi-card {
+  flex-shrink: 0; width: calc(33.333% - 14px);
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius2); padding: 36px;
+  transition: border-color 0.3s;
+}
+.testi-card:hover { border-color: var(--border2); }
+.testi-stars { color: var(--amber); font-size: 13px; margin-bottom: 16px; letter-spacing: 2px; }
+.testi-quote { color: var(--off-white); font-size: 15px; line-height: 1.7; margin-bottom: 28px; }
+.testi-author { display: flex; align-items: center; gap: 12px; }
+.testi-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy), var(--amber));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 700; font-size: 14px; color: white; flex-shrink: 0;
+}
+.testi-name { font-weight: 600; font-size: 14px; }
+.testi-co { font-size: 12px; color: var(--gray); }
+.testi-controls { display: flex; gap: 10px; margin-top: 32px; }
+.testi-btn {
+  width: 44px; height: 44px; border: 1px solid var(--border2); border-radius: 50%;
+  background: transparent; color: var(--off-white); font-size: 16px;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+.testi-btn:hover { background: var(--amber); border-color: var(--amber); color: #000; }
+
+/* ─── FAQ ─────────────────────────────────── */
+.faq-section { background: var(--bg2); }
+.faq-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; margin-top: 60px; }
+.faq-list { display: flex; flex-direction: column; gap: 2px; }
+.faq-item {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden; transition: border-color 0.3s;
+}
+.faq-item.open { border-color: var(--amber); }
+.faq-q {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 24px; cursor: pointer;
+  font-weight: 500; font-size: 15px; color: var(--off-white);
+  transition: color 0.2s; gap: 20px;
+  background: transparent; border: none; width: 100%; text-align: left;
+}
+.faq-q:hover { color: var(--white); }
+.faq-item.open .faq-q { color: var(--amber); }
+.faq-icon {
+  width: 24px; height: 24px; border: 1px solid var(--border2); border-radius: 50%;
+  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 14px; transition: transform 0.3s, background 0.3s; font-style: normal;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); background: var(--amber); border-color: var(--amber); color: #000; }
+.faq-a {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s;
+  color: var(--gray); font-size: 14px; line-height: 1.7; padding: 0 24px;
+}
+.faq-item.open .faq-a { max-height: 200px; padding: 0 24px 20px; }
+.faq-visual { position: sticky; top: 120px; }
+.faq-visual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.faq-visual-img {
+  border-radius: var(--radius2); overflow: hidden;
+  filter: var(--img-filter); transition: filter 0.4s;
+}
+.faq-visual-img:nth-child(1) { grid-row: span 2; aspect-ratio: 2/3; object-fit: cover; }
+.faq-visual-img:nth-child(2) { aspect-ratio: 1; object-fit: cover; }
+.faq-visual-img:nth-child(3) { aspect-ratio: 1; object-fit: cover; }
+
+/* ─── BLOG ─────────────────────────────────── */
+.blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+.blog-card {
+  border: 1px solid var(--border); border-radius: var(--radius2);
+  overflow: hidden; background: var(--bg2);
+  transition: border-color 0.3s, transform 0.3s; cursor: pointer;
+}
+.blog-card:hover { border-color: var(--amber); transform: translateY(-4px); }
+.blog-card-img-wrap { overflow: hidden; aspect-ratio: 16/9; }
+.blog-card-img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: var(--img-filter);
+  transition: transform 0.4s, filter 0.3s;
+}
+.blog-card:hover .blog-card-img { transform: scale(1.06); filter: var(--img-filter-hover); }
+.blog-card-body { padding: 24px; }
+.blog-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.blog-cat {
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--amber); border: 1px solid rgba(245,166,35,0.3); padding: 3px 10px; border-radius: 100px;
+}
+.blog-date { font-size: 12px; color: var(--gray); }
+.blog-card h3 {
+  font-family: var(--font-display); font-size: 17px; font-weight: 700;
+  line-height: 1.3; margin-bottom: 10px; letter-spacing: -0.01em;
+}
+.blog-card p { color: var(--gray); font-size: 13px; line-height: 1.65; margin-bottom: 20px; }
+.blog-card-footer { display: flex; align-items: center; justify-content: space-between; }
+.blog-author { display: flex; align-items: center; gap: 8px; }
+.blog-author-av {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: linear-gradient(135deg, #2E5FA3, var(--amber));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; color: white;
+}
+.blog-author-name { font-size: 12px; color: var(--gray); }
+.blog-read { font-size: 12px; color: var(--amber); }
+
+/* ─── CONTACT ─────────────────────────────────── */
+.contact-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; margin-top: 60px; }
+.contact-info { }
+.contact-detail { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 32px; }
+.contact-icon {
+  width: 44px; height: 44px; flex-shrink: 0;
+  border: 1px solid var(--border2); border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center; font-size: 18px;
+}
+.contact-detail h4 { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray); margin-bottom: 4px; }
+.contact-detail p { font-size: 15px; color: var(--off-white); }
+.contact-socials { display: flex; gap: 10px; margin-top: 40px; }
+.social-btn {
+  width: 40px; height: 40px; border: 1px solid var(--border2); border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center; font-size: 16px;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  color: var(--gray);
+}
+.social-btn:hover { background: var(--hover-color, var(--amber)); border-color: var(--hover-color, var(--amber)); color: #fff; transform: translateY(-2px); }
+.social-btn[title="X (Twitter)"]:hover, .social-btn[title="Facebook"]:hover,
+.social-btn[title="Instagram"]:hover { color: #fff; }
+
+/* Nav social icons */
+.nav-socials { display: flex; gap: 8px; align-items: center; margin-left: 4px; padding-left: 16px; border-left: 1px solid var(--border); }
+.nav-social {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gray); transition: color 0.2s, transform 0.2s;
+}
+.nav-social:hover { color: var(--amber); transform: translateY(-2px); }
+@media(max-width:1100px) { .nav-socials { display: none; } }
+.contact-form { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius2); padding: 40px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray); margin-bottom: 8px; }
+.form-group input, .form-group textarea, .form-group select {
+  width: 100%; background: var(--bg3); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 12px 16px;
+  color: var(--off-white); font-family: var(--font-body); font-size: 14px;
+  outline: none; transition: border-color 0.2s;
+  -webkit-appearance: none;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--amber); }
+.form-group textarea { resize: vertical; min-height: 100px; }
+.form-group select option { background: var(--bg3); }
+.form-submit {
+  width: 100%; background: var(--amber); color: #000; border: none;
+  padding: 14px; border-radius: var(--radius); font-size: 14px; font-weight: 700;
+  letter-spacing: 0.03em; text-transform: uppercase;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.form-submit:hover { background: var(--amber2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,166,35,0.25); }
+
+/* ─── CTA BAND ─────────────────────────────────── */
+.cta-band {
+  background: var(--bg2); padding: 80px var(--pad);
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center;
+}
+.cta-band-images { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.cta-band-img {
+  border-radius: var(--radius2); overflow: hidden;
+  filter: var(--img-filter); height: 160px; object-fit: cover; transition: filter 0.4s;
+}
+.cta-band-img:nth-child(1) { height: 200px; }
+.cta-h2 {
+  font-family: var(--font-display); font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 24px;
+}
+.cta-h2 em { font-style: normal; color: var(--amber); }
+
+/* ─── FOOTER ─────────────────────────────────── */
+footer {
+  padding: 60px var(--pad) 32px;
+  border-top: 1px solid var(--border);
+}
+.footer-social-link {
+  display: flex; align-items: center; gap: 10px;
+  color: var(--gray); font-size: 14px; transition: color 0.2s;
+}
+.footer-social-icon {
+  width: 30px; height: 30px; border: 1px solid var(--border2); border-radius: 6px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s;
+}
+.footer-social-link:hover .footer-social-icon { background: rgba(255,255,255,0.06); }
+.footer-top {
+  display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr 1fr; gap: 28px;
+  padding-bottom: 48px; border-bottom: 1px solid var(--border);
+}
+.footer-brand h3 {
+  font-family: var(--font-display); font-size: 20px; font-weight: 800; margin-bottom: 12px;
+}
+.footer-brand h3 span { color: var(--amber); }
+.footer-brand p { color: var(--gray); font-size: 13px; line-height: 1.7; max-width: 240px; margin-bottom: 20px; }
+.footer-status {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(245,166,35,0.08); border: 1px solid rgba(245,166,35,0.2);
+  padding: 6px 12px; border-radius: 100px; font-size: 11px; color: var(--amber);
+}
+.footer-status::before { content: ''; width: 6px; height: 6px; background: #2ecc71; border-radius: 50%; }
+.footer-col h4 { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 16px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul li a { font-size: 14px; color: var(--gray); transition: color 0.2s; }
+.footer-col ul li a:hover { color: var(--amber); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 24px; flex-wrap: wrap; gap: 12px;
+}
+.footer-copy { font-size: 12px; color: var(--gray2); }
+.footer-legal { display: flex; gap: 20px; }
+.footer-legal a { font-size: 12px; color: var(--gray2); transition: color 0.2s; }
+.footer-legal a:hover { color: var(--amber); }
+
+/* ─── WHATSAPP FLOAT ─────────────────────────────────── */
+.wa-float {
+  position: fixed; bottom: 28px; right: 28px; z-index: 900;
+  width: 56px; height: 56px; background: #25D366; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: white; font-size: 26px; border: none;
+}
+.wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
+.wa-float svg { width: 28px; height: 28px; fill: white; }
+
+/* ─── SCROLL ANIMATIONS ─────────────────────────────────── */
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ─── COUNTER ANIMATION ─────────────────────────────────── */
+.counter { display: inline-block; }
+
+/* ─── ABOUT PAGE ─────────────────────────────────── */
+.page-hero {
+  min-height: 50vh; padding: 160px var(--pad) 80px;
+  border-bottom: 1px solid var(--border);
+}
+.page-hero-h1 {
+  font-family: var(--font-display); font-size: clamp(48px, 7vw, 90px);
+  font-weight: 800; letter-spacing: -0.03em; line-height: 0.95; margin-bottom: 24px;
+}
+.page-hero-h1 em { font-style: normal; color: var(--amber); }
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 60px; }
+.team-card {
+  border: 1px solid var(--border); border-radius: var(--radius2); overflow: hidden;
+  background: var(--bg2); transition: border-color 0.3s, transform 0.3s;
+}
+.team-card:hover { border-color: var(--amber); transform: translateY(-4px); }
+.team-card-img {
+  width: 100%; aspect-ratio: 3/4; object-fit: cover;
+  filter: var(--img-filter); transition: filter 0.3s;
+}
+.team-card:hover .team-card-img { filter: var(--img-filter-hover); }
+.team-card-body { padding: 20px; }
+.team-card h4 { font-family: var(--font-display); font-weight: 700; font-size: 16px; margin-bottom: 4px; }
+.team-card p { font-size: 12px; color: var(--amber); }
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+.value-card {
+  padding: 36px; border: 1px solid var(--border); border-radius: var(--radius2);
+  background: var(--bg2); transition: border-color 0.3s;
+}
+.value-card:hover { border-color: var(--amber); }
+.value-icon { font-size: 32px; margin-bottom: 16px; }
+.value-card h3 { font-family: var(--font-display); font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+.value-card p { color: var(--gray); font-size: 14px; line-height: 1.65; }
+
+/* ─── SERVICES PAGE ─────────────────────────────────── */
+.services-full-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 60px; }
+.service-full-card {
+  background: var(--bg2); padding: 48px 40px;
+  border: 1px solid var(--border); transition: border-color 0.3s;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.service-full-card:hover { border-color: var(--amber); }
+.service-full-card h3 { font-family: var(--font-display); font-size: 24px; font-weight: 700; }
+.service-full-card p { color: var(--gray); font-size: 14px; line-height: 1.7; flex: 1; }
+.service-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.service-tag {
+  font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+  border: 1px solid var(--border2); padding: 4px 12px; border-radius: 100px; color: var(--gray);
+}
+.service-price { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--amber); }
+
+/* ─── PRICING ─────────────────────────────────── */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 60px; }
+.pricing-card {
+  border: 1px solid var(--border); border-radius: var(--radius2);
+  padding: 36px 28px; background: var(--bg2); position: relative;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.pricing-card:hover, .pricing-card.featured { border-color: var(--amber); }
+.pricing-card.featured { transform: scale(1.03); }
+.pricing-badge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--amber); color: #000; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 14px; border-radius: 100px;
+}
+.pricing-name { font-family: var(--font-display); font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+.pricing-price {
+  font-family: var(--font-display); font-size: 40px; font-weight: 800; color: var(--amber);
+  line-height: 1; margin-bottom: 4px;
+}
+.pricing-period { font-size: 12px; color: var(--gray); margin-bottom: 24px; }
+.pricing-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.pricing-features li { font-size: 13px; color: var(--gray); display: flex; align-items: center; gap: 8px; }
+.pricing-features li::before { content: '✓'; color: var(--amber); font-weight: 700; font-size: 12px; flex-shrink: 0; }
+.btn-pricing {
+  width: 100%; padding: 12px; border-radius: var(--radius); font-size: 13px; font-weight: 600;
+  text-align: center; display: block; transition: all 0.2s;
+}
+.btn-pricing.outline { border: 1px solid var(--border2); color: var(--off-white); background: transparent; }
+.btn-pricing.outline:hover { border-color: var(--amber); color: var(--amber); }
+.btn-pricing.filled { background: var(--amber); color: #000; border: none; }
+.btn-pricing.filled:hover { background: var(--amber2); }
+
+/* ─── MOBILE NAV ─────────────────────────────────── */
+.mobile-menu {
+  position: fixed; inset: 0; background: var(--bg); z-index: 999;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s, background 0.4s;
+}
+.mobile-menu.open { opacity: 1; pointer-events: auto; }
+.mobile-menu a {
+  font-family: var(--font-display); font-size: 36px; font-weight: 700;
+  color: var(--off-white); transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(--amber); }
+.mobile-close {
+  position: absolute; top: 20px; right: var(--pad);
+  background: none; border: none; color: var(--gray); font-size: 28px;
+}
+
+/* ─── LIGHT MODE OVERRIDES ─────────────────────── */
+html[data-theme="light"] .nav-links a { color: var(--gray); }
+html[data-theme="light"] .nav-links a:hover,
+html[data-theme="light"] .nav-links a.active { color: var(--off-white); }
+html[data-theme="light"] .hamburger span { background: var(--off-white); }
+html[data-theme="light"] .section-h2 { color: var(--off-white); }
+html[data-theme="light"] .testi-quote { color: var(--off-white); }
+html[data-theme="light"] .faq-q { color: var(--off-white); }
+html[data-theme="light"] .pricing-name { color: var(--off-white); }
+html[data-theme="light"] .service-card h3,
+html[data-theme="light"] .case-card h3,
+html[data-theme="light"] .blog-card h3,
+html[data-theme="light"] .team-card h4,
+html[data-theme="light"] .value-card h3,
+html[data-theme="light"] .service-full-card h3,
+html[data-theme="light"] .process-step h3 { color: var(--off-white); }
+html[data-theme="light"] .hero-h1,
+html[data-theme="light"] .page-hero-h1,
+html[data-theme="light"] .cta-h2,
+html[data-theme="light"] .section-h2 { color: var(--off-white); }
+html[data-theme="light"] .form-group select option { background: var(--bg3); color: var(--off-white); }
+html[data-theme="light"] .about-img-badge { background: var(--bg2); }
+html[data-theme="light"] .contact-form { background: var(--bg2); }
+html[data-theme="light"] .nav-logo { color: var(--off-white); }
+html[data-theme="light"] .nav-logo span { color: var(--amber); }
+html[data-theme="light"] body::before { opacity: 0.15; }
+
+/* ─── RESPONSIVE ─────────────────────────────────── */
+@media(max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .hero-h1 { font-size: clamp(42px, 10vw, 72px); }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .cases-grid { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: 1fr 1fr; }
+  .contact-layout { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .faq-grid { grid-template-columns: 1fr; }
+  .faq-visual { display: none; }
+  .team-grid { grid-template-columns: 1fr 1fr; }
+  .values-grid { grid-template-columns: 1fr; }
+  .services-full-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .pricing-card.featured { transform: none; }
+  .cta-band { grid-template-columns: 1fr; }
+  .testi-card { width: calc(80% - 10px); }
+  body { cursor: auto; }
+  #cursor, #cursor-ring { display: none; }
+}
+@media(max-width: 600px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+  .hero-cards-track { gap: 12px; }
+  .testi-card { width: calc(90% - 10px); }
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- THEME TOGGLE -->
+<button id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode" aria-label="Toggle theme">
+  <div id="theme-toggle-knob">☀️</div>
+</button>
+<div id="theme-toggle-label">Toggle Light Mode</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">✕</button>
+  <a href="#" onclick="navigate('home');closeMobile()">Home</a>
+  <a href="#" onclick="navigate('about');closeMobile()">About</a>
+  <a href="#" onclick="navigate('services');closeMobile()">Services</a>
+  <a href="#" onclick="navigate('cases');closeMobile()">Case Studies</a>
+  <a href="#" onclick="navigate('blog');closeMobile()">Blog</a>
+  <a href="#" onclick="navigate('contact');closeMobile()">Contact</a>
+  <div style="display:flex;gap:16px;margin-top:16px">
+    <a href="https://instagram.com/theimpacts" target="_blank" style="color:var(--gray);font-size:13px;letter-spacing:0.05em;text-transform:uppercase">Instagram</a>
+    <a href="https://facebook.com/theimpacts" target="_blank" style="color:var(--gray);font-size:13px;letter-spacing:0.05em;text-transform:uppercase">Facebook</a>
+    <a href="https://x.com/theimpacts" target="_blank" style="color:var(--gray);font-size:13px;letter-spacing:0.05em;text-transform:uppercase">X</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo" onclick="navigate('home')" style="cursor:pointer">THE<span>IMPACTS</span></div>
+  <div class="nav-links">
+    <a href="#" onclick="navigate('home')" data-page="home">Home</a>
+    <a href="#" onclick="navigate('about')" data-page="about">About</a>
+    <a href="#" onclick="navigate('services')" data-page="services">Services</a>
+    <a href="#" onclick="navigate('cases')" data-page="cases">Case Studies</a>
+    <a href="#" onclick="navigate('blog')" data-page="blog">Blog</a>
+    <div class="nav-socials">
+      <a href="https://instagram.com/theimpacts" target="_blank" class="nav-social" title="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://facebook.com/theimpacts" target="_blank" class="nav-social" title="Facebook">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="https://x.com/theimpacts" target="_blank" class="nav-social" title="X (Twitter)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+    </div>
+    <div class="nav-socials">
+      <a href="https://instagram.com/theimpacts" target="_blank" class="nav-social" title="Instagram">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://facebook.com/theimpacts" target="_blank" class="nav-social" title="Facebook">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="https://x.com/theimpacts" target="_blank" class="nav-social" title="X (Twitter)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+    </div>
+    <a href="#" class="nav-cta" onclick="navigate('contact')">Get Free Audit</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══════════════ HOME PAGE ══════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero" style="padding-bottom:0">
+    <div class="hero-bg"></div>
+    <div class="hero-top reveal">
+      <div class="hero-badge">Open for projects in 2025</div>
+      <div class="hero-trustbar">
+        <div class="hero-avatars">
+          <span>RK</span><span>AM</span><span>PS</span><span>VN</span>
+        </div>
+        <div class="hero-trust-text"><strong>200+ clients</strong><br>trust The Impacts</div>
+      </div>
+    </div>
+
+    <h1 class="hero-h1 reveal reveal-delay-1">
+      Elevate your brand<br>
+      with <em>digital</em><br>
+      <span class="outline">marketing</span>
+    </h1>
+
+    <div class="hero-sub-row reveal reveal-delay-2">
+      <p class="hero-desc">Crafting unforgettable digital experiences for Indian brands through innovative strategy, creative storytelling, and measurable ROI.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="navigate('contact')">Get Free Audit →</button>
+        <button class="btn-ghost" onclick="navigate('cases')">View Our Work</button>
+      </div>
+    </div>
+
+    <div class="hero-cards-track reveal reveal-delay-3" id="heroCards">
+      <div class="hero-card" onclick="navigate('services')">
+        <img src="https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=400&auto=format&fit=crop" class="hero-card-img" alt="SEO services">
+        <div class="hero-card-label">SEO & Content</div>
+        <div class="hero-card-arrow">↗</div>
+      </div>
+      <div class="hero-card" onclick="navigate('services')">
+        <img src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?w=400&auto=format&fit=crop" class="hero-card-img" alt="Brand strategy">
+        <div class="hero-card-label">Brand Strategy</div>
+        <div class="hero-card-arrow">↗</div>
+      </div>
+      <div class="hero-card" onclick="navigate('services')">
+        <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=400&auto=format&fit=crop" class="hero-card-img" alt="Digital marketing">
+        <div class="hero-card-label">Performance Ads</div>
+        <div class="hero-card-arrow">↗</div>
+      </div>
+      <div class="hero-card" onclick="navigate('services')">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&auto=format&fit=crop" class="hero-card-img" alt="Analytics">
+        <div class="hero-card-label">Analytics & ROI</div>
+        <div class="hero-card-arrow">↗</div>
+      </div>
+      <div class="hero-card" onclick="navigate('services')">
+        <img src="https://images.unsplash.com/photo-1611162616305-c69b3710bc01?w=400&auto=format&fit=crop" class="hero-card-img" alt="Social media">
+        <div class="hero-card-label">Social Media</div>
+        <div class="hero-card-arrow">↗</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-track" id="marqueeTrack">
+      <span class="marquee-item">SEO Strategy <span class="dot">·</span></span>
+      <span class="marquee-item highlight">Performance Marketing <span class="dot">·</span></span>
+      <span class="marquee-item">Brand Identity <span class="dot">·</span></span>
+      <span class="marquee-item highlight">Content Marketing <span class="dot">·</span></span>
+      <span class="marquee-item">Google Ads <span class="dot">·</span></span>
+      <span class="marquee-item highlight">Social Media <span class="dot">·</span></span>
+      <span class="marquee-item">Email Campaigns <span class="dot">·</span></span>
+      <span class="marquee-item highlight">Analytics & ROI <span class="dot">·</span></span>
+      <span class="marquee-item">SEO Strategy <span class="dot">·</span></span>
+      <span class="marquee-item highlight">Performance Marketing <span class="dot">·</span></span>
+      <span class="marquee-item">Brand Identity <span class="dot">·</span></span>
+      <span class="marquee-item highlight">Content Marketing <span class="dot">·</span></span>
+      <span class="marquee-item">Google Ads <span class="dot">·</span></span>
+      <span class="marquee-item highlight">Social Media <span class="dot">·</span></span>
+      <span class="marquee-item">Email Campaigns <span class="dot">·</span></span>
+      <span class="marquee-item highlight">Analytics & ROI <span class="dot">·</span></span>
+    </div>
+  </div>
+
+  <!-- ABOUT PREVIEW -->
+  <section style="max-width:var(--max);margin:0 auto;width:100%">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop" class="about-img" alt="The Impacts team meeting">
+        <div class="about-img-badge">
+          <div class="num">8+</div>
+          <div class="txt"><strong>Years of Impact</strong>Trusted across India</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label reveal">About The Impacts</div>
+        <h2 class="section-h2 reveal reveal-delay-1">Delivering <em>creative</em> digital solutions</h2>
+        <p class="section-sub reveal reveal-delay-2">We believe that great digital marketing is the key to success. We push the boundaries of strategy and creativity to deliver solutions that help Indian brands stand out and grow.</p>
+        <div class="about-stats reveal reveal-delay-3">
+          <div class="about-stat">
+            <div class="num"><span class="counter" data-target="200">0</span>+</div>
+            <div class="label">Clients Served</div>
+          </div>
+          <div class="about-stat">
+            <div class="num"><span class="counter" data-target="340">0</span>%</div>
+            <div class="label">Avg ROI Delivered</div>
+          </div>
+          <div class="about-stat">
+            <div class="num"><span class="counter" data-target="40">0</span>+</div>
+            <div class="label">Projects Completed</div>
+          </div>
+          <div class="about-stat">
+            <div class="num"><span class="counter" data-target="8">0</span>+</div>
+            <div class="label">Years in Business</div>
+          </div>
+        </div>
+        <div style="margin-top:32px" class="reveal reveal-delay-4">
+          <button class="btn-primary" onclick="navigate('about')">Explore Services →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY STRIP -->
+  <div class="gallery-strip reveal">
+    <div class="gallery-strip-img">
+      <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&auto=format&fit=crop&q=80" alt="Team strategy session">
+    </div>
+    <div class="gallery-strip-img">
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&auto=format&fit=crop&q=80" alt="Digital workspace">
+    </div>
+    <div class="gallery-strip-img">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&auto=format&fit=crop&q=80" alt="Analytics dashboard">
+    </div>
+    <div class="gallery-strip-img">
+      <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&auto=format&fit=crop&q=80" alt="Marketing campaign">
+    </div>
+  </div>
+
+  <!-- SPLIT IMAGE — RESULTS SECTION -->
+  <div class="split-section">
+    <div class="split-img">
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&auto=format&fit=crop&q=80" alt="Agency team working">
+      <div class="split-img-overlay"></div>
+    </div>
+    <div class="split-content reveal">
+      <div class="section-label">Our Priority</div>
+      <h2 class="section-h2">At Impacts, we deliver <em>real results</em></h2>
+      <p style="color:var(--gray);font-size:16px;line-height:1.75;margin-bottom:28px">We're committed to exceeding your expectations — delivering projects on time, within budget, and to a measurably high standard. We believe every rupee you invest should work harder.</p>
+      <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:32px">
+        <div style="display:flex;align-items:center;gap:14px">
+          <div style="width:36px;height:36px;background:rgba(245,166,35,0.12);border:1px solid rgba(245,166,35,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">✓</div>
+          <span style="font-size:15px">Dedicated account manager for every client</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px">
+          <div style="width:36px;height:36px;background:rgba(245,166,35,0.12);border:1px solid rgba(245,166,35,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">✓</div>
+          <span style="font-size:15px">Weekly transparent performance reports</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px">
+          <div style="width:36px;height:36px;background:rgba(245,166,35,0.12);border:1px solid rgba(245,166,35,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">✓</div>
+          <span style="font-size:15px">No long-term lock-ins — performance earns loyalty</span>
+        </div>
+      </div>
+      <button class="btn-primary" onclick="navigate('about')">Learn About Our Process →</button>
+    </div>
+  </div>
+
+  <!-- SERVICES PREVIEW -->
+  <section style="background:var(--bg2)">
+    <div style="max-width:var(--max);margin:0 auto">
+      <div class="services-intro">
+        <div>
+          <div class="section-label reveal">What We Do</div>
+          <h2 class="section-h2 reveal reveal-delay-1">Our <em>core</em> services</h2>
+        </div>
+        <button class="btn-ghost reveal reveal-delay-2" onclick="navigate('services')">View all services →</button>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-num">01</div>
+          <img src="https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=500&auto=format&fit=crop&q=80" class="service-card-img" alt="SEO">
+          <div class="service-icon">🔍</div>
+          <h3>SEO & Content</h3>
+          <p>Dominate Google search results with a data-driven SEO strategy built specifically for the Indian market. Long-term organic growth that compounds.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-num">02</div>
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=80" class="service-card-img" alt="Performance Marketing">
+          <div class="service-icon">📈</div>
+          <h3>Performance Marketing</h3>
+          <p>Google Ads, Meta Ads, and programmatic campaigns optimised for maximum ROAS. Every rupee tracked, every conversion counted.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-num">03</div>
+          <img src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?w=500&auto=format&fit=crop&q=80" class="service-card-img" alt="Brand Strategy">
+          <div class="service-icon">✦</div>
+          <h3>Brand Strategy</h3>
+          <p>From positioning and visual identity to messaging and tone of voice. We build brands that people remember and businesses that grow.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-num">04</div>
+          <img src="https://images.unsplash.com/photo-1611162616305-c69b3710bc01?w=500&auto=format&fit=crop&q=80" class="service-card-img" alt="Social Media">
+          <div class="service-icon">📱</div>
+          <h3>Social Media</h3>
+          <p>Instagram Reels, LinkedIn authority, YouTube growth — we manage your entire social presence with a consistent, engaging voice.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-num">05</div>
+          <img src="https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=500&auto=format&fit=crop&q=80" class="service-card-img" alt="Email Marketing">
+          <div class="service-icon">✉️</div>
+          <h3>Email Marketing</h3>
+          <p>Automated flows, newsletters, and drip campaigns that nurture leads and drive repeat purchases — the highest-ROI channel in digital.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-num">06</div>
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&auto=format&fit=crop&q=80" class="service-card-img" alt="Analytics">
+          <div class="service-icon">📊</div>
+          <h3>Analytics & Reporting</h3>
+          <p>Custom dashboards, GA4 setup, attribution modelling — so you always know exactly what is working and where to invest more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS SECTION -->
+  <section>
+    <div class="process-section" style="padding:100px var(--pad);background:var(--bg2)">
+      <div style="max-width:var(--max);margin:0 auto">
+        <div class="section-label reveal">How We Work</div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:0">
+          <h2 class="section-h2 reveal reveal-delay-1">A work process that<br><em>drives results</em></h2>
+          <p class="section-sub reveal reveal-delay-2" style="margin-bottom:0">We work with a solid plan. By combining creativity with strategic planning, we deliver solutions that drive meaningful results.</p>
+        </div>
+        <div class="process-grid reveal reveal-delay-1">
+          <div class="process-step">
+            <div class="process-step-num">01</div>
+            <div class="process-step-icon">🔎</div>
+            <h3>Discover & Audit</h3>
+            <p>Deep dive into your brand, market, competitors, and digital presence. We uncover what's holding you back.</p>
+          </div>
+          <div class="process-step">
+            <div class="process-step-num">02</div>
+            <div class="process-step-icon">🗺</div>
+            <h3>Strategise & Plan</h3>
+            <p>A custom 90-day roadmap with channel priorities, budget allocation, and clear KPIs tied to revenue.</p>
+          </div>
+          <div class="process-step">
+            <div class="process-step-num">03</div>
+            <div class="process-step-icon">⚡</div>
+            <h3>Execute & Optimise</h3>
+            <p>We launch campaigns, create content, and continuously A/B test to improve performance every week.</p>
+          </div>
+          <div class="process-step">
+            <div class="process-step-num">04</div>
+            <div class="process-step-icon">📈</div>
+            <h3>Report & Scale</h3>
+            <p>Transparent weekly reports. When we find what works, we scale it. Your growth becomes our north star.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES PREVIEW -->
+  <section>
+    <div style="max-width:var(--max);margin:0 auto">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px">
+        <div>
+          <div class="section-label reveal">Our Work</div>
+          <h2 class="section-h2 reveal reveal-delay-1">Featured <em>case studies</em></h2>
+        </div>
+        <button class="btn-ghost reveal reveal-delay-2" onclick="navigate('cases')">See all case studies →</button>
+      </div>
+      <div class="cases-grid">
+        <div class="case-card reveal">
+          <div class="case-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&auto=format&fit=crop" class="case-card-img" alt="Zara Foods case study">
+          </div>
+          <div class="case-card-body">
+            <span class="case-tag">D2C / Food & Beverage</span>
+            <h3>Zara Foods — 420% ROI in 90 days</h3>
+            <p>A Bengaluru-based D2C food brand struggling with CAC above ₹800. We rebuilt their Meta ad funnel, added Google Shopping, and restructured their email flows.</p>
+            <div class="case-metrics">
+              <div class="case-metric"><div class="val">420%</div><div class="key">ROI</div></div>
+              <div class="case-metric"><div class="val">₹210</div><div class="key">New CAC</div></div>
+              <div class="case-metric"><div class="val">3.2x</div><div class="key">ROAS</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="case-card reveal reveal-delay-1">
+          <div class="case-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1664575602554-2087b04935a5?w=700&auto=format&fit=crop" class="case-card-img" alt="TechNest case study">
+          </div>
+          <div class="case-card-body">
+            <span class="case-tag">B2B / SaaS</span>
+            <h3>TechNest SaaS — 0 to 1,200 leads/month</h3>
+            <p>A Hyderabad-based HR-tech startup with zero digital presence. We built their LinkedIn engine, SEO foundation, and Google Ads infrastructure from scratch.</p>
+            <div class="case-metrics">
+              <div class="case-metric"><div class="val">1,200</div><div class="key">Leads/mo</div></div>
+              <div class="case-metric"><div class="val">₹340</div><div class="key">CPL</div></div>
+              <div class="case-metric"><div class="val">8x</div><div class="key">Traffic</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testi-section" style="background:var(--bg2)">
+    <div style="max-width:var(--max);margin:0 auto">
+      <div class="testi-header">
+        <div>
+          <div class="section-label reveal">Client Stories</div>
+          <h2 class="section-h2 reveal reveal-delay-1">Trusted by leaders,<br><em>loved by clients</em></h2>
+        </div>
+        <div class="testi-controls">
+          <button class="testi-btn" id="testiPrev">←</button>
+          <button class="testi-btn" id="testiNext">→</button>
+        </div>
+      </div>
+      <div class="testi-slider" style="overflow:hidden">
+        <div class="testi-track" id="testiTrack">
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">"We came with a challenge — our CPL was killing us. The Impacts rebuilt everything from the ground up. We're now at a 4.1x ROAS consistently. True partners, not just vendors."</p>
+            <div class="testi-author">
+              <div class="testi-avatar">RM</div>
+              <div><div class="testi-name">Rajat Mehta</div><div class="testi-co">Founder, ZaraFoods</div></div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">"Their SEO work brought us from page 5 to position 1 for our main keyword in 4 months. Organic traffic is now our biggest lead source. The blog they wrote still ranks today."</p>
+            <div class="testi-author">
+              <div class="testi-avatar">PS</div>
+              <div><div class="testi-name">Priya Sharma</div><div class="testi-co">CEO, LegalEdge India</div></div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">"The Impacts built our entire digital presence from zero. Within 6 months, we were generating 1,200 qualified leads per month on LinkedIn. Phenomenal team, phenomenal results."</p>
+            <div class="testi-author">
+              <div class="testi-avatar">AK</div>
+              <div><div class="testi-name">Arjun Kumar</div><div class="testi-co">Co-Founder, TechNest</div></div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">"They took the time to understand our brand deeply before touching any campaigns. The brand identity they developed has been a game-changer for customer perception."</p>
+            <div class="testi-author">
+              <div class="testi-avatar">SD</div>
+              <div><div class="testi-name">Sneha Desai</div><div class="testi-co">Director, OrganicIndia Mart</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div style="max-width:var(--max);margin:0 auto">
+      <div class="section-label reveal">FAQs</div>
+      <h2 class="section-h2 reveal reveal-delay-1">Your questions, <em>answered</em></h2>
+      <div class="faq-grid">
+        <div class="faq-list reveal reveal-delay-2">
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">How long before I see results? <em class="faq-icon">+</em></button>
+            <div class="faq-a">SEO typically shows measurable ranking improvements in 60–90 days, with significant traffic growth in 3–6 months. Paid campaigns (Google/Meta Ads) can show lead generation results within the first 2–4 weeks after campaign launch and initial optimisation.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">What is the minimum budget to work with you? <em class="faq-icon">+</em></button>
+            <div class="faq-a">Our Starter Pack begins at ₹25,000/month for focused SEO and content work. For performance marketing (Google/Meta Ads), we recommend a minimum ad spend of ₹15,000–20,000/month in addition to our management fee. We tailor packages to your stage and goals.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">How involved will I be in the process? <em class="faq-icon">+</em></button>
+            <div class="faq-a">As involved as you want to be. We provide a dedicated account manager, weekly progress updates, and monthly strategy reviews. We handle the execution — you simply review, approve, and watch the results. Most clients spend 1–2 hours per week collaborating with us.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">Do you work with businesses outside metro cities? <em class="faq-icon">+</em></button>
+            <div class="faq-a">Absolutely. We work with businesses across India — from metro cities like Mumbai and Bengaluru to Tier-2 cities like Indore, Surat, and Lucknow. Our digital-first model means location is never a barrier.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">Can you take over from our existing agency? <em class="faq-icon">+</em></button>
+            <div class="faq-a">Yes. We have a structured onboarding process designed for agency transitions. We audit your existing setup, document what's working, and build on it — rather than starting from scratch. The handover is smooth and typically takes 2–3 weeks.</div>
+          </div>
+        </div>
+        <div class="faq-visual reveal reveal-delay-3">
+          <div class="faq-visual-grid">
+            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&auto=format&fit=crop" class="faq-visual-img" alt="office" style="grid-row:span 2;aspect-ratio:2/3;object-fit:cover;border-radius:12px">
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&auto=format&fit=crop" class="faq-visual-img" alt="team" style="aspect-ratio:1;object-fit:cover;border-radius:12px">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&auto=format&fit=crop" class="faq-visual-img" alt="work" style="aspect-ratio:1;object-fit:cover;border-radius:12px">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <div>
+      <div class="section-label reveal">Ready to grow?</div>
+      <h2 class="cta-h2 reveal reveal-delay-1">Let's bring your<br><em>vision to life</em></h2>
+      <p style="color:var(--gray);margin-bottom:32px;max-width:400px" class="reveal reveal-delay-2">Book a free 30-minute discovery call. No pitch, no pressure — just an honest conversation about your goals.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap" class="reveal reveal-delay-3">
+        <button class="btn-primary" onclick="navigate('contact')">Book a Discovery Call →</button>
+        <button class="btn-ghost" onclick="navigate('about')">Learn About Us</button>
+      </div>
+    </div>
+    <div class="cta-band-images reveal reveal-delay-1">
+      <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&auto=format&fit=crop" class="cta-band-img" alt="workspace" style="height:200px;object-fit:cover;border-radius:12px">
+      <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&auto=format&fit=crop" class="cta-band-img" alt="meeting" style="height:160px;object-fit:cover;border-radius:12px">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&auto=format&fit=crop" class="cta-band-img" alt="office" style="height:160px;object-fit:cover;border-radius:12px">
+      <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&auto=format&fit=crop" class="cta-band-img" alt="laptop" style="height:200px;object-fit:cover;border-radius:12px">
+    </div>
+  </div>
+
+</div><!-- END HOME -->
+
+<!-- ══════════════ ABOUT PAGE ══════════════ -->
+<div class="page" id="page-about">
+  <div class="page-hero" style="position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1800&auto=format&fit=crop&q=80');background-size:cover;background-position:center;filter:var(--img-filter);transition:filter 0.4s"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to right, var(--bg) 40%, transparent)"></div>
+    <div style="max-width:var(--max);margin:0 auto;position:relative;z-index:1">
+      <div class="section-label reveal">Our Story</div>
+      <h1 class="page-hero-h1 reveal reveal-delay-1">We turn brands into<br><em>digital forces</em></h1>
+      <p class="section-sub reveal reveal-delay-2" style="max-width:600px">Founded with one mission — to give Indian startups and SMEs the same quality of digital marketing that big corporations enjoy, at a price they can actually afford.</p>
+    </div>
+  </div>
+
+  <!-- Culture image strip -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;max-height:260px;overflow:hidden">
+    <div style="overflow:hidden"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=500&auto=format&fit=crop&q=80" style="width:100%;height:260px;object-fit:cover;filter:var(--img-filter);transition:filter 0.4s,transform 0.5s" onmouseover="this.style.transform='scale(1.06)';this.style.filter='saturate(1) brightness(1)'" onmouseout="this.style.transform='scale(1)';this.style.filter='var(--img-filter)'" alt="office culture"></div>
+    <div style="overflow:hidden"><img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=500&auto=format&fit=crop&q=80" style="width:100%;height:260px;object-fit:cover;filter:var(--img-filter);transition:filter 0.4s,transform 0.5s" onmouseover="this.style.transform='scale(1.06)';this.style.filter='saturate(1) brightness(1)'" onmouseout="this.style.transform='scale(1)';this.style.filter='var(--img-filter)'" alt="team collaboration"></div>
+    <div style="overflow:hidden"><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=500&auto=format&fit=crop&q=80" style="width:100%;height:260px;object-fit:cover;filter:var(--img-filter);transition:filter 0.4s,transform 0.5s" onmouseover="this.style.transform='scale(1.06)';this.style.filter='saturate(1) brightness(1)'" onmouseout="this.style.transform='scale(1)';this.style.filter='var(--img-filter)'" alt="workspace"></div>
+    <div style="overflow:hidden"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=500&auto=format&fit=crop&q=80" style="width:100%;height:260px;object-fit:cover;filter:var(--img-filter);transition:filter 0.4s,transform 0.5s" onmouseover="this.style.transform='scale(1.06)';this.style.filter='saturate(1) brightness(1)'" onmouseout="this.style.transform='scale(1)';this.style.filter='var(--img-filter)'" alt="modern office"></div>
+  </div>
+
+  <section>
+    <div style="max-width:var(--max);margin:0 auto">
+      <div class="about-grid">
+        <div class="about-img-wrap reveal">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop" class="about-img" alt="The Impacts team">
+          <div class="about-img-badge">
+            <div class="num">2016</div>
+            <div class="txt"><strong>Founded in Mumbai</strong>Growing across India</div>
+          </div>
+        </div>
+        <div>
+          <div class="section-label reveal">Our Mission</div>
+          <h2 class="section-h2 reveal reveal-delay-1">Crafting compelling <em>brand identities</em></h2>
+          <p style="color:var(--gray);font-size:16px;line-height:1.75;margin-bottom:20px" class="reveal reveal-delay-2">Our team of visionaries, strategists, and creative specialists work in harmony to deliver results that resonate with your target audience. We are not just an agency — we are your long-term growth partner.</p>
+          <p style="color:var(--gray);font-size:16px;line-height:1.75" class="reveal reveal-delay-3">We are committed to exceeding your expectations, delivering projects on time, within budget, and to the highest standard. We measure success only one way — by the growth it creates for your business.</p>
+          <div class="about-stats reveal reveal-delay-4">
+            <div class="about-stat"><div class="num"><span class="counter" data-target="200">0</span>+</div><div class="label">Happy Clients</div></div>
+            <div class="about-stat"><div class="num"><span class="counter" data-target="8">0</span>+</div><div class="label">Years Experience</div></div>
+            <div class="about-stat"><div class="num"><span class="counter" data-target="18">0</span></div><div class="label">Team Members</div></div>
+            <div class="about-stat"><div class="num"><span class="counter" data-target="12">0</span>+</div><div class="label">Awards Won</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--bg2)">
+    <div style="max-width:var(--max);margin:0 auto">
+      <div class="section-label reveal">What Drives Us</div>
+      <h2 class="section-h2 reveal reveal-delay-1">Our core <em>values</em></h2>
+      <div class="values-grid">
+        <div class="value-card reveal">
+          <div class="value-icon">🎯</div>
+          <h3>Results First</h3>
+          <p>Every strategy we build is anchored to a measurable outcome. We track, test, and optimise until your numbers go up. Vanity metrics don't interest us — revenue does.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-icon">🤝</div>
+          <h3>True Partnership</h3>
+          <p>We treat your brand as if it were our own. Your budget is our budget. Your audience is our audience. We invest deeply in understanding your world.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-2">
+          <div class="value-icon">💡</div>
+          <h3>Innovative Thinking</h3>
+          <p>The digital landscape changes fast. We stay ahead of trends — from AI-powered content to new ad formats — so your brand is always one step ahead of the competition.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-icon">🔍</div>
+          <h3>Radical Transparency</h3>
+          <p>No black boxes, no agency jargon. You get clear weekly reports, honest analysis, and straight answers. If something isn't working, we tell you first.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-2">
+          <div class="value-icon">🇮🇳</div>
+          <h3>India-First Strategy</h3>
+          <p>We understand the nuances of the Indian consumer — from metros to Tier-2 cities, from GenZ Instagram users to Millennial LinkedIn professionals.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-3">
+          <div class="value-icon">🚀</div>
+          <h3>Growth Mindset</h3>
+          <p>We are perpetual students of marketing. We invest in training, tools, and research so that our strategies reflect the best practices of today, not yesterday.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div style="max-width:var(--max);margin:0 auto">
+      <div class="section-label reveal">The People</div>
+      <h2 class="section-h2 reveal reveal-delay-1">Meet the <em>team</em></h2>
+      <p class="section-sub reveal reveal-delay-2">A diverse team of strategists, creatives, and data nerds who live and breathe digital marketing.</p>
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop" class="team-card-img" alt="Vikram Kapoor">
+          <div class="team-card-body"><h4>Vikram Kapoor</h4><p>Founder & CEO</p></div>
+        </div>
+        <div class="team-card reveal reveal-delay-1">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop" class="team-card-img" alt="Ananya Singh">
+          <div class="team-card-body"><h4>Ananya Singh</h4><p>Head of Strategy</p></div>
+        </div>
+        <div class="team-card reveal reveal-delay-2">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&auto=format&fit=crop" class="team-card-img" alt="Rohan Joshi">
+          <div class="team-card-body"><h4>Rohan Joshi</h4><p>Performance Marketing Lead</p></div>
+        </div>
+        <div class="team-card reveal reveal-delay-3">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&auto=format&fit=crop" class="team-card-img" alt="Meera Nair">
+          <div class="team-card-body"><h4>Meera Nair</h4><p>SEO & Content Head</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div>
+      <h2 class="cta-h2 reveal">Ready to work <em>together?</em></h2>
+      <p style="color:var(--gray);margin-bottom:32px" class="reveal reveal-delay-1">Let's build something that makes a real impact for your business.</p>
+      <button class="btn-primary reveal reveal-delay-2" onclick="navigate('contact')">Book a Free Discovery Call →</button>
+    </div>
+    <div class="cta-band-images reveal reveal-delay-1" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&auto=format&fit=crop" style="border-radius:12px;height:180px;object-fit:cover;filter:var(--img-filter)" alt="office">
+      <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&auto=format&fit=crop" style="border-radius:12px;height:180px;object-fit:cover;filter:var(--img-filter)" alt="team">
+    </div>
+  </div>
+</div><!-- END ABOUT -->
+
+<!-- ══════════════ SERVICES PAGE ══════════════ -->
+<div class="page" id="page-services">
+  <div class="page-hero" style="position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1800&auto=format&fit=crop&q=80');background-size:cover;background-position:center;filter:var(--img-filter);transition:filter 0.4s"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to right, var(--bg) 50%, transparent)"></div>
+    <div style="max-width:var(--max);margin:0 auto;position:relative;z-index:1">
+      <div class="section-label reveal">What We Offer</div>
+      <h1 class="page-hero-h1 reveal reveal-delay-1">Services built for<br><em>Indian growth</em></h1>
+      <p class="section-sub reveal reveal-delay-2">Every service we offer is tailored for Indian businesses — from metro startups to Tier-2 SMEs ready to scale their digital presence.</p>
+    </div>
+  </div>
+
+  <section>
+    <div style="max-width:var(--max);margin:0 auto">
+      <div class="services-full-grid">
+        <div class="service-full-card reveal">
+          <div class="service-icon" style="width:52px;height:52px;font-size:24px">🔍</div>
+          <h3>SEO & Content Marketing</h3>
+          <p>Rank on the first page of Google for the keywords your customers are searching. We build a complete SEO architecture — technical SEO, on-page optimisation, and a content strategy designed to generate traffic that converts. Includes keyword research, blog creation, and monthly performance tracking.</p>
+          <div class="service-tags">
+            <span class="service-tag">Technical SEO</span>
+            <span class="service-tag">Keyword Research</span>
+            <span class="service-tag">Blog Writing</span>
+            <span class="service-tag">Link Building</span>
+          </div>
+          <div class="service-price">From ₹25,000/mo</div>
+          <button class="btn-ghost" style="width:fit-content" onclick="navigate('contact')">Get Started →</button>
+        </div>
+        <div class="service-full-card reveal reveal-delay-1">
+          <div class="service-icon" style="width:52px;height:52px;font-size:24px">📈</div>
+          <h3>Performance Marketing</h3>
+          <p>Google Search Ads, Meta Ads (Facebook & Instagram), and YouTube pre-roll campaigns — all managed with a data-first approach. We set up proper tracking, build audiences, and optimise daily for maximum ROAS. No wasted spend, ever.</p>
+          <div class="service-tags">
+            <span class="service-tag">Google Ads</span>
+            <span class="service-tag">Meta Ads</span>
+            <span class="service-tag">YouTube Ads</span>
+            <span class="service-tag">Retargeting</span>
+          </div>
+          <div class="service-price">From ₹20,000/mo</div>
+          <button class="btn-ghost" style="width:fit-content" onclick="navigate('contact')">Get Started →</button>
+        </div>
+        <div class="service-full-card reveal">
+          <div class="service-icon" style="width:52px;height:52px;font-size:24px">✦</div>
+          <h3>Brand Strategy & Identity</h3>
+          <p>Your brand is more than a logo — it's the feeling your customers have when they think of you. We build comprehensive brand systems: visual identity, messaging frameworks, tone of voice, and brand guidelines that travel consistently across every digital touchpoint.</p>
+          <div class="service-tags">
+            <span class="service-tag">Visual Identity</span>
+            <span class="service-tag">Brand Guidelines</span>
+            <span class="service-tag">Messaging</span>
+            <span class="service-tag">Positioning</span>
+          </div>
+          <div class="service-price">From ₹45,000 (one-time)</div>
+          <button class="btn-ghost" style="width:fit-content" onclick="navigate('contact')">Get Started →</button>
+        </div>
+        <div class="service-full-card reveal reveal-delay-1">
+          <div class="service-icon" style="width:52px;height:52px;font-size:24px">📱</div>
+          <h3>Social Media Management</h3>
+          <p>Full-service Instagram, LinkedIn, and YouTube management. Strategy, content calendar, graphic design, caption writing, community management, and monthly analytics reports. We become your in-house social team — at a fraction of the cost.</p>
+          <div class="service-tags">
+            <span class="service-tag">Instagram</span>
+            <span class="service-tag">LinkedIn</span>
+            <span class="service-tag">YouTube</span>
+            <span class="service-tag">Reels</span>
+          </div>
+          <div class="service-price">From ₹30,000/mo</div>
+          <button class="btn-ghost" style="width:fit-content" onclick="navigate('contact')">Get Started →</button>
+        </div>
+        <div class="service-full-card reveal">
+          <div class="service-icon" style="width:52px;height:52px;font-size:24px">✉️</div>
+          <h3>Email Marketing & Automation</h3>
+          <p>The highest-ROI channel in digital — and the most underutilised by Indian businesses. We set up automated welcome sequences, nurture drips, cart abandonment flows, and weekly newsletters that keep your audience engaged and buying.</p>
+          <div class="service-tags">
+            <span class="service-tag">Automation</span>
+            <span class="service-tag">Newsletter</span>
+            <span class="service-tag">Drip Campaigns</span>
+            <span class="service-tag">A/B Testing</span>
+          </div>
+          <div class="service-price">From ₹18,000/mo</div>
+          <button class="btn-ghost" style="width:fit-content" onclick="navigate('contact')">Get Started →</button>
+        </div>
+        <div class="service-full-card reveal reveal-delay-1">
+          <div class="service-icon" style="width:52px;height:52px;font-size:24px">📊</div>
+          <h3>Analytics & Marketing Audit</h3>
+          <p>A comprehensive digital audit of your entire marketing ecosystem — SEO, ads, social, email, and website. We identify exactly where you're losing money and where the biggest growth opportunities lie. Delivered in 7 days.</p>
+          <div class="service-tags">
+            <span class="service-tag">GA4 Setup</span>
+            <span class="service-tag">Dashboard</span>
+            <span class="service-tag">Attribution</span>
+            <span class="service-tag">Full Audit</span>
+          </div>
+          <div class="service-price">From ₹15,000 (one-time)</div>
+          <button class="btn-ghost" style="width:fit-content" onclick="navigate('contact')">Get Started →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section style="background:var(--bg2)">
+    <div style="max-width:var(--max);margin:0 auto">
+      <div style="text-align:center;margin-bottom:60px">
+        <div class="section-label reveal" style="justify-content:center">Pricing</div>
+        <h2 class="section-h2 reveal reveal-delay-1">Transparent, <em>simple pricing</em></h2>
+        <p class="section-sub reveal reveal-delay-2" style="margin:0 auto;text-align:center">No hidden fees. No long-term lock-ins. Just clear value for every rupee you invest.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card reveal">
+          <div class="pricing-name">Starter</div>
+          <div class="pricing-price">₹25K</div>
+          <div class="pricing-period">per month</div>
+          <ul class="pricing-features">
+            <li>SEO audit & strategy</li>
+            <li>2 blog articles/month</li>
+            <li>On-page SEO optimisation</li>
+            <li>Monthly performance report</li>
+            <li>Dedicated account manager</li>
+          </ul>
+          <a href="#" class="btn-pricing outline" onclick="navigate('contact')">Get Started</a>
+        </div>
+        <div class="pricing-card featured reveal reveal-delay-1">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-name">Growth</div>
+          <div class="pricing-price">₹60K</div>
+          <div class="pricing-period">per month</div>
+          <ul class="pricing-features">
+            <li>Everything in Starter</li>
+            <li>Google Ads management</li>
+            <li>Meta Ads management</li>
+            <li>Social media (3 platforms)</li>
+            <li>4 blog articles/month</li>
+            <li>Weekly reporting</li>
+            <li>CRO recommendations</li>
+          </ul>
+          <a href="#" class="btn-pricing filled" onclick="navigate('contact')">Get Started</a>
+        </div>
+        <div class="pricing-card reveal reveal-delay-2">
+          <div class="pricing-name">Enterprise</div>
+          <div class="pricing-price">Custom</div>
+          <div class="pricing-period">tailored for you</div>
+          <ul class="pricing-features">
+            <li>Everything in Growth</li>
+            <li>Brand strategy & identity</li>
+            <li>Email automation setup</li>
+            <li>Advanced analytics</li>
+            <li>Dedicated strategy team</li>
+            <li>Priority support (WhatsApp)</li>
+          </ul>
+          <a href="#" class="btn-pricing outline" onclick="navigate('contact')">Talk to Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- END SERVICES -->
+
+<!-- ══════════════ CASE STUDIES PAGE ══════════════ -->
+<div class="page" id="page-cases">
+  <div class="page-hero" style="position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1542744094-3a31f272c490?w=1800&auto=format&fit=crop&q=80');background-size:cover;background-position:center;filter:var(--img-filter);transition:filter 0.4s"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to right, var(--bg) 50%, transparent)"></div>
+    <div style="max-width:var(--max);margin:0 auto;position:relative;z-index:1">
+      <div class="section-label reveal">Portfolio</div>
+      <h1 class="page-hero-h1 reveal reveal-delay-1">40+ projects,<br><em>real results</em></h1>
+      <p class="section-sub reveal reveal-delay-2">Our portfolio showcases a selection of our most impactful client projects we worked on throughout our journey.</p>
+    </div>
+  </div>
+
+  <section>
+    <div style="max-width:var(--max);margin:0 auto">
+      <div class="cases-grid" style="grid-template-columns:repeat(2,1fr)">
+        <div class="case-card reveal">
+          <div class="case-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&auto=format&fit=crop" class="case-card-img" alt="Zara Foods">
+          </div>
+          <div class="case-card-body">
+            <span class="case-tag">D2C / Food & Beverage</span>
+            <h3>Zara Foods — 420% ROI in 90 days</h3>
+            <p>Complete Meta ad funnel rebuild, Google Shopping launch, and email flow optimisation for a Bengaluru-based D2C food brand with a sky-high CAC problem.</p>
+            <div class="case-metrics">
+              <div class="case-metric"><div class="val">420%</div><div class="key">ROI</div></div>
+              <div class="case-metric"><div class="val">₹210</div><div class="key">New CAC</div></div>
+              <div class="case-metric"><div class="val">3.2x</div><div class="key">ROAS</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="case-card reveal reveal-delay-1">
+          <div class="case-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1664575602554-2087b04935a5?w=700&auto=format&fit=crop" class="case-card-img" alt="TechNest">
+          </div>
+          <div class="case-card-body">
+            <span class="case-tag">B2B / SaaS</span>
+            <h3>TechNest SaaS — 0 to 1,200 leads/month</h3>
+            <p>Built entire digital presence for a Hyderabad HR-tech startup — LinkedIn demand gen, SEO foundation, and Google Ads infrastructure from zero.</p>
+            <div class="case-metrics">
+              <div class="case-metric"><div class="val">1,200</div><div class="key">Leads/mo</div></div>
+              <div class="case-metric"><div class="val">₹340</div><div class="key">CPL</div></div>
+              <div class="case-metric"><div class="val">8x</div><div class="key">Traffic</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="case-card reveal">
+          <div class="case-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=700&auto=format&fit=crop" class="case-card-img" alt="LegalEdge">
+          </div>
+          <div class="case-card-body">
+            <span class="case-tag">Professional Services / Legal</span>
+            <h3>LegalEdge India — Page 1 SEO in 4 months</h3>
+            <p>Complete SEO overhaul for a Mumbai-based online legal services platform. Pillar & cluster content strategy, technical SEO, and link building campaign.</p>
+            <div class="case-metrics">
+              <div class="case-metric"><div class="val">#1</div><div class="key">Google Rank</div></div>
+              <div class="case-metric"><div class="val">580%</div><div class="key">Organic Traffic</div></div>
+              <div class="case-metric"><div class="val">220</div><div class="key">Leads/mo</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="case-card reveal reveal-delay-1">
+          <div class="case-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=700&auto=format&fit=crop" class="case-card-img" alt="OrganicIndia">
+          </div>
+          <div class="case-card-body">
+            <span class="case-tag">D2C / Health & Wellness</span>
+            <h3>OrganicIndia Mart — Brand relaunch + 2.8x revenue</h3>
+            <p>Complete brand strategy refresh, new visual identity, Instagram Reels growth campaign, and email automation for a Delhi-based organic products brand.</p>
+            <div class="case-metrics">
+              <div class="case-metric"><div class="val">2.8x</div><div class="key">Revenue</div></div>
+              <div class="case-metric"><div class="val">85K</div><div class="key">New Followers</div></div>
+              <div class="case-metric"><div class="val">4.5%</div><div class="key">Email CTR</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div>
+      <h2 class="cta-h2 reveal">Your success story<br>starts <em>here</em></h2>
+      <p style="color:var(--gray);margin-bottom:32px" class="reveal reveal-delay-1">Join 200+ Indian businesses who've already broken through digitally with The Impacts.</p>
+      <button class="btn-primary reveal reveal-delay-2" onclick="navigate('contact')">Start Your Project →</button>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center" class="reveal reveal-delay-1">
+      <div style="text-align:center">
+        <div style="font-family:var(--font-display);font-size:80px;font-weight:800;color:var(--amber);line-height:1">40+</div>
+        <div style="font-size:16px;color:var(--gray)">Projects delivered</div>
+        <div style="font-family:var(--font-display);font-size:80px;font-weight:800;color:white;line-height:1;margin-top:24px">200+</div>
+        <div style="font-size:16px;color:var(--gray)">Clients served</div>
+      </div>
+    </div>
+  </div>
+</div><!-- END CASES -->
+
+<!-- ══════════════ BLOG PAGE ══════════════ -->
+<div class="page" id="page-blog">
+  <div class="page-hero" style="position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=1800&auto=format&fit=crop&q=80');background-size:cover;background-position:center;filter:var(--img-filter);transition:filter 0.4s"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to right, var(--bg) 55%, transparent)"></div>
+    <div style="max-width:var(--max);margin:0 auto;position:relative;z-index:1">
+      <div class="section-label reveal">Insights & Strategy</div>
+      <h1 class="page-hero-h1 reveal reveal-delay-1">The Impacts <em>Blog</em></h1>
+      <p class="section-sub reveal reveal-delay-2">Data-driven insights, practical guides, and strategic thinking for Indian entrepreneurs and marketers.</p>
+    </div>
+  </div>
+
+  <section>
+    <div style="max-width:var(--max);margin:0 auto">
+      <!-- Featured Post -->
+      <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:40px;margin-bottom:60px;border:1px solid var(--border);border-radius:var(--radius2);overflow:hidden;background:var(--bg2)" class="reveal">
+        <div style="overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;min-height:320px;filter:var(--img-filter);transition:transform 0.4s" alt="Digital Marketing ROI" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+        </div>
+        <div style="padding:40px;display:flex;flex-direction:column;justify-content:center">
+          <div class="blog-meta">
+            <span class="blog-cat">Featured</span>
+            <span class="blog-date">March 2025</span>
+          </div>
+          <h2 style="font-family:var(--font-display);font-size:26px;font-weight:700;margin-bottom:16px;line-height:1.2;letter-spacing:-0.01em">How Indian Startups Can Get Real ROI from Digital Marketing in 2025</h2>
+          <p style="color:var(--gray);font-size:14px;line-height:1.7;margin-bottom:24px">A 1,600-word tactical guide for Indian startup founders who want to stop burning budget and start seeing real, measurable returns from every digital channel.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div class="blog-author">
+              <div class="blog-author-av">VK</div>
+              <span class="blog-author-name">Vikram Kapoor</span>
+            </div>
+            <span style="color:var(--amber);font-size:13px">8 min read →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-grid">
+        <div class="blog-card reveal">
+          <div class="blog-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=600&auto=format&fit=crop" class="blog-card-img" alt="SEO">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta"><span class="blog-cat">SEO</span><span class="blog-date">Feb 2025</span></div>
+            <h3>The Complete SEO Checklist for Indian Small Businesses in 2025</h3>
+            <p>Everything you need to rank on page 1 in India — from Google Search Console setup to long-tail keyword targeting for local markets.</p>
+            <div class="blog-card-footer">
+              <div class="blog-author"><div class="blog-author-av">MN</div><span class="blog-author-name">Meera Nair</span></div>
+              <span class="blog-read">6 min read</span>
+            </div>
+          </div>
+        </div>
+        <div class="blog-card reveal reveal-delay-1">
+          <div class="blog-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1611162616305-c69b3710bc01?w=600&auto=format&fit=crop" class="blog-card-img" alt="Instagram">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta"><span class="blog-cat">Social Media</span><span class="blog-date">Jan 2025</span></div>
+            <h3>Why Instagram Reels Are the Most Powerful Free Marketing Tool for Indian D2C Brands</h3>
+            <p>How to use Instagram Reels to build brand awareness, drive traffic, and generate sales — with zero ad spend — for Indian consumer brands.</p>
+            <div class="blog-card-footer">
+              <div class="blog-author"><div class="blog-author-av">AS</div><span class="blog-author-name">Ananya Singh</span></div>
+              <span class="blog-read">5 min read</span>
+            </div>
+          </div>
+        </div>
+        <div class="blog-card reveal reveal-delay-2">
+          <div class="blog-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&auto=format&fit=crop" class="blog-card-img" alt="Google Ads">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta"><span class="blog-cat">Performance</span><span class="blog-date">Dec 2024</span></div>
+            <h3>Google Ads for Beginners: A Step-by-Step Guide for Indian Business Owners</h3>
+            <p>How to set up your first Google Search campaign, choose the right keywords, and avoid the most common money-wasting mistakes Indian advertisers make.</p>
+            <div class="blog-card-footer">
+              <div class="blog-author"><div class="blog-author-av">RJ</div><span class="blog-author-name">Rohan Joshi</span></div>
+              <span class="blog-read">7 min read</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full Blog Article -->
+  <section style="background:var(--bg2)">
+    <div style="max-width:760px;margin:0 auto">
+      <div class="section-label reveal">Full Article</div>
+      <h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-0.02em;margin-bottom:12px;line-height:1.1" class="reveal reveal-delay-1">How Indian Startups Can Get Real ROI from Digital Marketing in 2025</h2>
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:36px;color:var(--gray);font-size:13px;flex-wrap:wrap" class="reveal reveal-delay-2">
+        <div class="blog-author"><div class="blog-author-av">VK</div><span>Vikram Kapoor</span></div>
+        <span>·</span><span>March 14, 2025</span><span>·</span><span>8 min read</span>
+        <span class="blog-cat">Strategy</span>
+      </div>
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=760&auto=format&fit=crop" style="width:100%;border-radius:var(--radius2);margin-bottom:40px;filter:var(--img-filter)" alt="Digital marketing ROI" class="reveal">
+
+      <div style="color:var(--gray);line-height:1.85;font-size:16px" class="reveal reveal-delay-1">
+        <p style="margin-bottom:20px">India is witnessing an unprecedented digital revolution. With over 900 million internet users and the world's second-largest smartphone market, the opportunity for Indian startups to grow their business online has never been greater.</p>
+        <p style="margin-bottom:20px">Yet, a staggering 70% of small and medium businesses in India still struggle to see real, measurable ROI from their digital marketing efforts.</p>
+        <h3 style="font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--off-white);margin:36px 0 16px;letter-spacing:-0.01em">Why Most Indian Startups Waste Their Digital Marketing Budget</h3>
+        <p style="margin-bottom:20px">The number one reason startups waste budget is the lack of a defined buyer persona and a coherent strategy. Without knowing exactly who you're talking to — their age, city, income, digital behaviour, and purchase triggers — every rupee spent on advertising is essentially a guess.</p>
+        <p style="margin-bottom:20px">The second biggest mistake is measuring vanity metrics: impressions, likes, and follower counts. These numbers feel good but rarely translate into revenue. The real metrics that matter for ROI are <strong style="color:var(--off-white)">Cost Per Lead (CPL)</strong>, Customer Acquisition Cost (CAC), Conversion Rate, and Return on Ad Spend (ROAS).</p>
+        <h3 style="font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--off-white);margin:36px 0 16px;letter-spacing:-0.01em">The 5 Digital Channels That Actually Work for Indian Businesses</h3>
+        <p style="margin-bottom:16px">Not every channel works for every business. Here's a breakdown:</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:24px">
+          <li style="display:flex;gap:12px;align-items:flex-start"><span style="color:var(--amber);font-weight:700;flex-shrink:0">01</span><span><strong style="color:var(--off-white)">SEO</strong> — Best for businesses with long sales cycles where buyers research before purchasing.</span></li>
+          <li style="display:flex;gap:12px;align-items:flex-start"><span style="color:var(--amber);font-weight:700;flex-shrink:0">02</span><span><strong style="color:var(--off-white)">Google Ads</strong> — Ideal for high-intent buyers already searching for your solution.</span></li>
+          <li style="display:flex;gap:12px;align-items:flex-start"><span style="color:var(--amber);font-weight:700;flex-shrink:0">03</span><span><strong style="color:var(--off-white)">Meta Ads</strong> — Perfect for D2C brands, fashion, food, and lifestyle.</span></li>
+          <li style="display:flex;gap:12px;align-items:flex-start"><span style="color:var(--amber);font-weight:700;flex-shrink:0">04</span><span><strong style="color:var(--off-white)">Content Marketing</strong> — Builds long-term authority and organic traffic.</span></li>
+          <li style="display:flex;gap:12px;align-items:flex-start"><span style="color:var(--amber);font-weight:700;flex-shrink:0">05</span><span><strong style="color:var(--off-white)">LinkedIn</strong> — Essential for B2B startups and professional services.</span></li>
+        </ul>
+        <h3 style="font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--off-white);margin:36px 0 16px;letter-spacing:-0.01em">The ROI Formula Every Founder Must Know</h3>
+        <div style="background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--amber);padding:20px 24px;border-radius:var(--radius);margin:24px 0;font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--off-white)">
+          ROI = [(Revenue Generated – Marketing Spend) / Marketing Spend] × 100
+        </div>
+        <p style="margin-bottom:20px">For example, if you spent ₹50,000 on Google Ads and generated ₹2,00,000 in revenue, your ROI is 300%. Knowing this number helps you scale confidently — because you know every ₹1 invested returns ₹4.</p>
+        <h3 style="font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--off-white);margin:36px 0 16px;letter-spacing:-0.01em">Your 90-Day Digital Marketing Framework</h3>
+        <p style="margin-bottom:20px">The most successful Indian brands online are not the ones that spent the most — they're the ones that built a sustainable, compounding strategy:</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:24px">
+          <li style="display:flex;gap:12px;align-items:flex-start"><span style="background:var(--amber);color:#000;font-weight:700;font-size:11px;padding:3px 8px;border-radius:3px;flex-shrink:0;margin-top:3px">Days 1–30</span><span>Set up all tracking. Define your buyer persona. Fix on-page SEO. Create your social media profile kit. Publish your first two blog articles.</span></li>
+          <li style="display:flex;gap:12px;align-items:flex-start"><span style="background:var(--amber);color:#000;font-weight:700;font-size:11px;padding:3px 8px;border-radius:3px;flex-shrink:0;margin-top:3px">Days 31–60</span><span>Launch a small Google Search Ads campaign (₹10,000–15,000/month). Begin posting 3× per week on Instagram and LinkedIn. Start building your email list.</span></li>
+          <li style="display:flex;gap:12px;align-items:flex-start"><span style="background:var(--amber);color:#000;font-weight:700;font-size:11px;padding:3px 8px;border-radius:3px;flex-shrink:0;margin-top:3px">Days 61–90</span><span>Analyse what's working. Double down on the channel with the lowest CPL. Launch retargeting campaigns. Build your first customer case study.</span></li>
+        </ul>
+        <div style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.2);padding:28px;border-radius:var(--radius2);margin:32px 0;text-align:center">
+          <p style="color:var(--off-white);margin-bottom:16px;font-size:17px">Ready to start seeing real results?</p>
+          <button class="btn-primary" onclick="navigate('contact')">Get Your Free Digital Audit →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- END BLOG -->
+
+<!-- ══════════════ CONTACT PAGE ══════════════ -->
+<div class="page" id="page-contact">
+  <div class="page-hero" style="position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1800&auto=format&fit=crop&q=80');background-size:cover;background-position:center;filter:var(--img-filter);transition:filter 0.4s"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to right, var(--bg) 55%, transparent)"></div>
+    <div style="max-width:var(--max);margin:0 auto;position:relative;z-index:1">
+      <div class="section-label reveal">Get in Touch</div>
+      <h1 class="page-hero-h1 reveal reveal-delay-1">Let's build something<br><em>impactful</em></h1>
+      <p class="section-sub reveal reveal-delay-2">Book a free 30-minute discovery call and let's talk about your goals, your challenges, and how The Impacts can help you break through.</p>
+    </div>
+  </div>
+
+  <!-- Office image strip -->
+  <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:4px;max-height:200px;overflow:hidden">
+    <div style="overflow:hidden"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&auto=format&fit=crop&q=80" style="width:100%;height:200px;object-fit:cover;filter:var(--img-filter);transition:filter 0.4s,transform 0.5s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="office"></div>
+    <div style="overflow:hidden"><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=500&auto=format&fit=crop&q=80" style="width:100%;height:200px;object-fit:cover;filter:var(--img-filter);transition:filter 0.4s,transform 0.5s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="team meeting"></div>
+    <div style="overflow:hidden"><img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=500&auto=format&fit=crop&q=80" style="width:100%;height:200px;object-fit:cover;filter:var(--img-filter);transition:filter 0.4s,transform 0.5s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" alt="digital work"></div>
+  </div>
+
+  <section>
+    <div style="max-width:var(--max);margin:0 auto">
+      <div class="contact-layout">
+        <div class="contact-info">
+          <div class="contact-detail reveal">
+            <div class="contact-icon">📍</div>
+            <div>
+              <h4>Office</h4>
+              <p>Level 4, One Horizon Centre<br>Golf Course Road, Gurugram, Haryana — 122002</p>
+            </div>
+          </div>
+          <div class="contact-detail reveal reveal-delay-1">
+            <div class="contact-icon">📧</div>
+            <div>
+              <h4>Email</h4>
+              <p>hello@theimpacts.in</p>
+            </div>
+          </div>
+          <div class="contact-detail reveal reveal-delay-2">
+            <div class="contact-icon">📞</div>
+            <div>
+              <h4>Phone / WhatsApp</h4>
+              <p>+91 98765 43210</p>
+            </div>
+          </div>
+          <div class="contact-detail reveal reveal-delay-3">
+            <div class="contact-icon">🕐</div>
+            <div>
+              <h4>Office Hours</h4>
+              <p>Monday – Friday: 9:00 AM – 7:00 PM IST<br>Saturday: 10:00 AM – 2:00 PM IST</p>
+            </div>
+          </div>
+          <div style="margin-bottom:12px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray)" class="reveal reveal-delay-3">Follow Us</div>
+          <div class="contact-socials reveal reveal-delay-4">
+            <a href="https://instagram.com/theimpacts" target="_blank" class="social-btn" title="Instagram" style="--hover-color:#E1306C">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="https://facebook.com/theimpacts" target="_blank" class="social-btn" title="Facebook" style="--hover-color:#1877F2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="https://x.com/theimpacts" target="_blank" class="social-btn" title="X (Twitter)" style="--hover-color:#ffffff">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://linkedin.com/company/theimpacts" target="_blank" class="social-btn" title="LinkedIn" style="--hover-color:#0A66C2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://youtube.com/@theimpacts" target="_blank" class="social-btn" title="YouTube" style="--hover-color:#FF0000">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42A2.78 2.78 0 0020.59 4.4C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 001.95-2.02A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98" fill="white"/></svg>
+            </a>
+          </div>
+          <div style="margin-top:40px;padding:24px;background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.2);border-radius:var(--radius2)" class="reveal">
+            <div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);margin-bottom:8px">🟢 Currently Open</div>
+            <p style="font-size:14px;color:var(--gray);line-height:1.6">We are accepting new projects for Q2 2025. Get in touch today to secure your spot in our pipeline.</p>
+          </div>
+        </div>
+
+        <div class="contact-form reveal reveal-delay-1">
+          <h3 style="font-family:var(--font-display);font-size:22px;font-weight:700;margin-bottom:28px">Send us a message</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="Rajat">
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Mehta">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="rajat@yourcompany.in">
+          </div>
+          <div class="form-group">
+            <label>Phone / WhatsApp</label>
+            <input type="tel" placeholder="+91 98765 43210">
+          </div>
+          <div class="form-group">
+            <label>Service You're Interested In</label>
+            <select>
+              <option value="">Select a service</option>
+              <option>SEO & Content Marketing</option>
+              <option>Performance Marketing (Google/Meta Ads)</option>
+              <option>Social Media Management</option>
+              <option>Brand Strategy & Identity</option>
+              <option>Email Marketing & Automation</option>
+              <option>Full Growth Package</option>
+              <option>Free Digital Audit</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Monthly Budget Range</label>
+            <select>
+              <option value="">Select budget range</option>
+              <option>₹15,000 – ₹30,000/month</option>
+              <option>₹30,000 – ₹60,000/month</option>
+              <option>₹60,000 – ₹1,50,000/month</option>
+              <option>₹1,50,000+/month</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tell Us About Your Project</label>
+            <textarea placeholder="What's your biggest digital marketing challenge right now? What are your growth goals for the next 6–12 months?"></textarea>
+          </div>
+          <button class="form-submit" onclick="submitForm(this)">Send Message — Get Free Audit ↗</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- END CONTACT -->
+
+<!-- FOOTER -->
+<footer>
+  <div style="max-width:var(--max);margin:0 auto">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>THE<span>IMPACTS</span></h3>
+        <p>India's results-driven digital marketing agency. We help startups & SMEs grow with SEO, Google Ads & social media.</p>
+        <div class="footer-status">Open for new projects</div>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#" onclick="navigate('home')">Home</a></li>
+          <li><a href="#" onclick="navigate('about')">About Us</a></li>
+          <li><a href="#" onclick="navigate('services')">Services</a></li>
+          <li><a href="#" onclick="navigate('cases')">Case Studies</a></li>
+          <li><a href="#" onclick="navigate('blog')">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#" onclick="navigate('services')">SEO & Content</a></li>
+          <li><a href="#" onclick="navigate('services')">Performance Marketing</a></li>
+          <li><a href="#" onclick="navigate('services')">Social Media</a></li>
+          <li><a href="#" onclick="navigate('services')">Brand Strategy</a></li>
+          <li><a href="#" onclick="navigate('services')">Email Marketing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@theimpacts.in">hello@theimpacts.in</a></li>
+          <li><a href="tel:+919876543210">+91 98765 43210</a></li>
+          <li><a href="#">Gurugram, Haryana</a></li>
+          <li><a href="#" onclick="navigate('contact')">Book a Call</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
+          <a href="https://instagram.com/theimpacts" target="_blank" class="footer-social-link" onmouseover="this.style.color='#E1306C'" onmouseout="this.style.color=''">
+            <span class="footer-social-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>Instagram
+          </a>
+          <a href="https://facebook.com/theimpacts" target="_blank" class="footer-social-link" onmouseover="this.style.color='#1877F2'" onmouseout="this.style.color=''">
+            <span class="footer-social-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></span>Facebook
+          </a>
+          <a href="https://x.com/theimpacts" target="_blank" class="footer-social-link" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color=''">
+            <span class="footer-social-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span>X (Twitter)
+          </a>
+          <a href="https://linkedin.com/company/theimpacts" target="_blank" class="footer-social-link" onmouseover="this.style.color='#0A66C2'" onmouseout="this.style.color=''">
+            <span class="footer-social-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></span>LinkedIn
+          </a>
+          <a href="https://youtube.com/@theimpacts" target="_blank" class="footer-social-link" onmouseover="this.style.color='#FF0000'" onmouseout="this.style.color=''">
+            <span class="footer-social-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42A2.78 2.78 0 0020.59 4.4C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 001.95-2.02A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98" fill="white"/></svg></span>YouTube
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 The Impacts. All rights reserved.</p>
+      <div style="display:flex;align-items:center;gap:10px">
+        <a href="https://instagram.com/theimpacts" target="_blank" class="social-btn" title="Instagram" style="--hover-color:#E1306C">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://facebook.com/theimpacts" target="_blank" class="social-btn" title="Facebook" style="--hover-color:#1877F2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://x.com/theimpacts" target="_blank" class="social-btn" title="X (Twitter)" style="--hover-color:#ffffff">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://linkedin.com/company/theimpacts" target="_blank" class="social-btn" title="LinkedIn" style="--hover-color:#0A66C2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://youtube.com/@theimpacts" target="_blank" class="social-btn" title="YouTube" style="--hover-color:#FF0000">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42A2.78 2.78 0 0020.59 4.4C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 001.95-2.02A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98" fill="white"/></svg>
+        </a>
+      </div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a class="wa-float" href="https://wa.me/919876543210?text=Hi%2C%20I%20found%20The%20Impacts%20and%20want%20to%20know%20more%20about%20your%20services." target="_blank" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+// ─── CURSOR ───────────────────────────────────
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+function animateCursor() {
+  cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+  rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+  cursorRing.style.left = rx + 'px'; cursorRing.style.top = ry + 'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// ─── NAVIGATION ───────────────────────────────
+function navigate(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  document.querySelectorAll('.nav-links a[data-page]').forEach(a => {
+    a.classList.toggle('active', a.dataset.page === page);
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(initReveal, 100);
+  setTimeout(initCounters, 200);
+  return false;
+}
+
+// ─── NAVBAR SCROLL ─────────────────────────────
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ─── HAMBURGER ─────────────────────────────────
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.add('open');
+});
+document.getElementById('mobileClose').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.remove('open');
+});
+function closeMobile() {
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+// ─── SCROLL REVEAL ─────────────────────────────
+function initReveal() {
+  const els = document.querySelectorAll('.page.active .reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(el => obs.observe(el));
+}
+
+// ─── COUNTERS ──────────────────────────────────
+function initCounters() {
+  document.querySelectorAll('.page.active .counter').forEach(counter => {
+    const target = +counter.dataset.target;
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          let start = 0; const duration = 1800;
+          const step = timestamp => {
+            if (!start) start = timestamp;
+            const progress = Math.min((timestamp - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            counter.textContent = Math.round(eased * target);
+            if (progress < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    obs.observe(counter);
+  });
+}
+
+// ─── TESTIMONIAL SLIDER ────────────────────────
+let testiIndex = 0;
+const testiTrack = document.getElementById('testiTrack');
+const totalTestis = 4;
+function getTestiVisible() { return window.innerWidth <= 600 ? 1 : window.innerWidth <= 900 ? 1 : 3; }
+function updateTesti() {
+  const visible = getTestiVisible();
+  const max = totalTestis - visible;
+  testiIndex = Math.max(0, Math.min(testiIndex, max));
+  const cardWidth = testiTrack.children[0].offsetWidth + 20;
+  testiTrack.style.transform = `translateX(-${testiIndex * cardWidth}px)`;
+}
+document.getElementById('testiNext').addEventListener('click', () => { testiIndex++; updateTesti(); });
+document.getElementById('testiPrev').addEventListener('click', () => { testiIndex--; updateTesti(); });
+window.addEventListener('resize', updateTesti);
+
+// ─── FAQ ────────────────────────────────────────
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ─── FORM SUBMIT ───────────────────────────────
+function submitForm(btn) {
+  btn.textContent = '✓ Message Sent! We\'ll reach out within 24 hours.';
+  btn.style.background = '#2ecc71'; btn.style.color = 'white';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = 'Send Message — Get Free Audit ↗';
+    btn.style.background = ''; btn.style.color = '';
+    btn.disabled = false;
+  }, 4000);
+}
+
+// ─── THEME TOGGLE ──────────────────────────────
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  const knob = document.getElementById('theme-toggle-knob');
+  knob.textContent = isDark ? '🌙' : '☀️';
+  const label = document.getElementById('theme-toggle-label');
+  label.textContent = isDark ? 'Toggle Dark Mode' : 'Toggle Light Mode';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+
+// ─── INIT ───────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  // Restore saved theme
+  const saved = localStorage.getItem('theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+  const knob = document.getElementById('theme-toggle-knob');
+  knob.textContent = saved === 'dark' ? '☀️' : '🌙';
+  document.getElementById('theme-toggle-label').textContent =
+    saved === 'dark' ? 'Toggle Light Mode' : 'Toggle Dark Mode';
+
+  initReveal(); initCounters();
+  // Prevent default nav link behaviour
+  document.querySelectorAll('a[onclick]').forEach(a => {
+    a.addEventListener('click', e => e.preventDefault());
+  });
+});
+</script>
+</body>
+</html>
